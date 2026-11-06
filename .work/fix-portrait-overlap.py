@@ -1,0 +1,10 @@
+﻿from pathlib import Path
+p=Path('src/app/globals.css')
+s=p.read_text(encoding='utf-8')
+s=s.replace('width:min(520px,100%);height:580px}', 'width:min(520px,100%);height:auto;display:flex;flex-direction:column;align-items:flex-end}')
+s=s.replace('position:absolute;right:38px;top:20px;width:min(410px,80%);height:500px', 'position:relative;right:auto;top:auto;width:min(410px,80%);height:500px')
+s=s.replace('position:absolute;z-index:2;left:0;bottom:34px;width:240px;', 'position:relative;z-index:2;left:auto;bottom:auto;width:240px;margin-top:14px;align-self:flex-start;')
+s=s.replace('.hero-portrait-wrap{justify-self:center;height:350px;width:320px;order:-1}', '.hero-portrait-wrap{justify-self:center;height:auto;width:320px;order:-1;align-items:center}')
+s=s.replace('.signal-card{left:-5px;bottom:5px;transform:scale(.82);transform-origin:left bottom}', '.signal-card{left:auto;bottom:auto;align-self:flex-start;transform:scale(.82);transform-origin:left top}')
+p.write_text(s, encoding='utf-8')
+print('Hero signal panel no longer overlaps portrait')
